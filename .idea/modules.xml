@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/varcalc.iml" filepath="$PROJECT_DIR$/varcalc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/varcalc-core/varcalc-core.iml" filepath="$PROJECT_DIR$/varcalc-core/varcalc-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/varcalc-web/varcalc-web.iml" filepath="$PROJECT_DIR$/varcalc-web/varcalc-web.iml" />
+    </modules>
+  </component>
+</project>
