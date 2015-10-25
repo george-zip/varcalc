@@ -25,7 +25,8 @@ public class PortfoliosService {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    Response post(Portfolio portfolio) {
+    public Response get(Portfolio portfolio, @Context ServletContext context) {
+        PortfolioBook.getPortfolioBook(context).addPortfolio(portfolio);
         return Response.ok().build();
     }
 }
