@@ -35,7 +35,7 @@ final class VaRCalcMain extends AbstractModule {
             String[] tokens = s.split(",");
             positions.add(new Position(tokens[0], Double.parseDouble(tokens[1])));
         }
-        return new Portfolio(positions);
+        return new Portfolio(positions, fileName);
     }
 
     public static void main(final String[] args) {

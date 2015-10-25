@@ -2,33 +2,30 @@ package com.wallerstein.web;
 
 import com.wallerstein.model.Portfolio;
 import com.wallerstein.model.Position;
+import com.wallerstein.web.gson.PositionGSONConverter;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.servlet.ServletContext;
+import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.json.Json;
-import javax.json.JsonObject;
 
 @Path("portfolios")
 public class PortfoliosService {
 
-    private Portfolio portfolio = null;
-
-    public PortfoliosService() {
-        List<Position> positionList = new ArrayList<Position>();
-        positionList.add(new Position("XYZ", 100));
-        positionList.add(new Position("ZZZ", 50));
-        portfolio = new Portfolio(positionList);
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Portfolio[] get(@Context ServletContext context) {
+        return PortfolioBook.getPortfolioBook(context).getAllPortfolios();
     }
 
-    @GET
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Position get() {
-        return new Position("IBM", 100);
+    Response post(Portfolio portfolio) {
+        return Response.ok().build();
     }
 }

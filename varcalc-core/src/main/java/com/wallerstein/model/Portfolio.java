@@ -2,6 +2,7 @@ package com.wallerstein.model;
 
 import org.jfree.data.time.TimeSeriesDataItem;
 
+import javax.sound.sampled.Port;
 import java.util.Iterator;
 import java.util.List;
 
@@ -11,9 +12,16 @@ import java.util.List;
 public final class Portfolio implements Iterable<Position> {
 
     private final List<Position> positions;
+    private final String name;
 
     public Portfolio(final List<Position> positions) {
         this.positions = positions;
+        this.name = "";
+    }
+
+    public Portfolio(final List<Position> positions, final String name) {
+        this.positions = positions;
+        this.name = name;
     }
 
     public Position getPosition(final String securityID) {
@@ -29,6 +37,10 @@ public final class Portfolio implements Iterable<Position> {
 
     public int numPositions() {
         return positions.size();
+    }
+
+    public String getName() {
+        return name;
     }
 
     public Iterator<Position> iterator() {
