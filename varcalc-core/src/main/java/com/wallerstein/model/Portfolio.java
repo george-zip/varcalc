@@ -5,6 +5,7 @@ import org.jfree.data.time.TimeSeriesDataItem;
 import javax.sound.sampled.Port;
 import java.util.Iterator;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * A immutable collection of positions.
@@ -13,15 +14,24 @@ public final class Portfolio implements Iterable<Position> {
 
     private final List<Position> positions;
     private final String name;
+    private final UUID id;
 
     public Portfolio(final List<Position> positions) {
         this.positions = positions;
         this.name = "";
+        this.id = UUID.randomUUID();
     }
 
     public Portfolio(final List<Position> positions, final String name) {
         this.positions = positions;
         this.name = name;
+        this.id = UUID.randomUUID();
+    }
+
+    public Portfolio(final List<Position> positions, final String name, String id) {
+        this.positions = positions;
+        this.name = name;
+        this.id = UUID.fromString(id);
     }
 
     public Position getPosition(final String securityID) {
@@ -58,6 +68,10 @@ public final class Portfolio implements Iterable<Position> {
                     * this.getPosition(cpTimeSeries.getSymbol()).getQuantity();
         }
         return retVal;
+    }
+
+    public String getID() {
+        return id.toString();
     }
 
 }

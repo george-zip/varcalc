@@ -13,6 +13,7 @@ public class PortfolioGSONConverter implements JsonSerializer<Portfolio>, JsonDe
                                  Type typeOfSrc,
                                  JsonSerializationContext context){
         JsonObject jsonObject= new JsonObject();
+        jsonObject.addProperty("id", src.getID());
         jsonObject.addProperty("name", src.getName());
         JsonObject jsonDataObject= new JsonObject();
         jsonDataObject.add("data", jsonObject);

@@ -3,8 +3,8 @@ package com.wallerstein.web.messagebodyhandler;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.wallerstein.model.Portfolio;
-import com.wallerstein.web.gson.PortfolioArrayGSONConverter;
+import com.wallerstein.model.Position;
+import com.wallerstein.web.gson.PositionArrayGSONConverter;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
@@ -21,8 +21,8 @@ import java.lang.reflect.Type;
 @Provider
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class PortfListMessageBodyHandler implements MessageBodyWriter<Portfolio[]>,
-        MessageBodyReader<Portfolio[]> {
+public class PositionArrayMsgBodyHandler implements MessageBodyWriter<Position[]>,
+        MessageBodyReader<Position[]> {
 
     private GsonBuilder gsonBuilder;
     private Gson gson;
@@ -32,7 +32,7 @@ public class PortfListMessageBodyHandler implements MessageBodyWriter<Portfolio[
     private Gson getGson() {
         if(gsonBuilder == null) {
             gsonBuilder = new GsonBuilder();
-            gsonBuilder.registerTypeAdapter(Portfolio[].class, new PortfolioArrayGSONConverter());
+            gsonBuilder.registerTypeAdapter(Position[].class, new PositionArrayGSONConverter());
         }
         if(gson == null) {
             gson = gsonBuilder.create();
@@ -56,14 +56,14 @@ public class PortfListMessageBodyHandler implements MessageBodyWriter<Portfolio[
     }
 
     @Override
-    public long getSize(Portfolio[] t, Class<?> type, Type genericType, Annotation[] annotations,
+    public long getSize(Position[] t, Class<?> type, Type genericType, Annotation[] annotations,
                         MediaType mediaType) {
         return -1;
     }
 
 
     @Override
-    public void writeTo(Portfolio[] portfolioArray,
+    public void writeTo(Position[] PositionArray,
                         Class<?> type,
                         Type genericType,
                         Annotation[] annotations,
@@ -74,7 +74,7 @@ public class PortfListMessageBodyHandler implements MessageBodyWriter<Portfolio[
             WebApplicationException {
         OutputStreamWriter writer = new OutputStreamWriter(entityStream, UTF_8);
         try {
-            getGson().toJson(portfolioArray, writer);
+            getGson().toJson(PositionArray, writer);
         }
         finally {
             writer.close();
@@ -82,13 +82,13 @@ public class PortfListMessageBodyHandler implements MessageBodyWriter<Portfolio[
     }
 
     @Override
-    public Portfolio[] readFrom(Class<Portfolio[]> type, Type genericType,
-                              Annotation[] annotations, MediaType mediaType,
-                              MultivaluedMap<String, String> httpHeaders,
-                              InputStream entityStream) throws IOException, WebApplicationException {
+    public Position[] readFrom(Class<Position[]> type, Type genericType,
+                                Annotation[] annotations, MediaType mediaType,
+                                MultivaluedMap<String, String> httpHeaders,
+                                InputStream entityStream) throws IOException, WebApplicationException {
         InputStreamReader streamReader = new InputStreamReader(entityStream, UTF_8);
         try {
-            return getGson().fromJson(streamReader, Portfolio[].class);
+            return getGson().fromJson(streamReader, Position[].class);
         }
         finally {
             streamReader.close();

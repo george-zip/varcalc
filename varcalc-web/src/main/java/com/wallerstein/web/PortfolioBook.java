@@ -9,12 +9,21 @@ import javax.servlet.ServletContext;
 public class PortfolioBook {
 
     private static String ATTRIBUTE_NAME = "PortfolioBook";
-    private Map<Integer, Portfolio> portfolios = new TreeMap<>();
+    private Map<String, Portfolio> portfolios = new TreeMap<>();
     private static int nextID = 0;
 
     {
-        portfolios.put(nextID++, new Portfolio(new ArrayList<Position>(), "foo"));
-        portfolios.put(nextID++, new Portfolio(new ArrayList<Position>(), "bar"));
+        List<Position> pos1 = new ArrayList<Position>();
+        pos1.add(new Position("IBM", 100));
+        pos1.add(new Position("MS", 200));
+        Portfolio p1 = new Portfolio(pos1, "foo");
+        portfolios.put(p1.getID(), p1);
+
+        List<Position> pos2 = new ArrayList<Position>();
+        pos2.add(new Position("GOOG", 100));
+        pos2.add(new Position("DUK", -200));
+        Portfolio p2 = new Portfolio(pos2, "bar");
+        portfolios.put(p2.getID(), p2);
     }
 
     public static PortfolioBook getPortfolioBook(ServletContext servletContext) {
@@ -26,14 +35,32 @@ public class PortfolioBook {
     }
 
     public synchronized void addPortfolio(final Portfolio p) {
-        portfolios.put(new Integer(nextID++), p);
+        portfolios.put(p.getID(), p);
     }
 
-    public synchronized Portfolio getPortfolioByID(Integer id) {
+    public synchronized Portfolio getPortfolioByID(String id) {
         if(portfolios.containsKey(id)) {
             return portfolios.get(id);
         }
         throw new IllegalArgumentException(id + " not found");
+    }
+
+    public synchronized void deletePortfolioByID(String id) {
+        if(portfolios.containsKey(id)) {
+            portfolios.remove(id);
+        }
+        else {
+            throw new IllegalArgumentException(id + " not found");
+        }
+    }
+
+    public synchronized void updatePortfolioByID(String id, Portfolio portfolio) {
+        if(portfolios.containsKey(id)) {
+            portfolios.put(id, portfolio);
+        }
+        else {
+            throw new IllegalArgumentException(id + " not found");
+        }
     }
 
     public synchronized Portfolio[] getAllPortfolios() {
