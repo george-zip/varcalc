@@ -2,7 +2,6 @@ package com.wallerstein.model;
 
 import java.security.InvalidParameterException;
 
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**

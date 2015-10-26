@@ -20,7 +20,7 @@ public class YahooCPService implements HistoricalClosingPrices {
     }
 
     public List<CPTimeSeries> getClosingPricesForPortfolio(final Portfolio portfolio) {
-        List<CPTimeSeries> portfolioTS = new ArrayList<CPTimeSeries>();
+        List<CPTimeSeries> portfolioTS = new ArrayList<>();
         for (Position position : portfolio) {
             CPTimeSeries cpTimeSeries = getClosingPricesForSymbol(
                     position.getSecurityID());

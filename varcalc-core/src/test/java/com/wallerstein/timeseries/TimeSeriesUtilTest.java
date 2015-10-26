@@ -2,11 +2,8 @@ package com.wallerstein.timeseries;
 
 import static org.junit.Assert.*;
 
-import java.util.List;
-
 import org.jfree.data.time.Day;
 import org.jfree.data.time.TimeSeries;
-import org.jfree.data.time.TimeSeriesDataItem;
 import org.junit.Before;
 import org.junit.Test;
 

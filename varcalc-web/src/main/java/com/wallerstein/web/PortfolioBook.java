@@ -13,13 +13,13 @@ public class PortfolioBook {
     private static int nextID = 0;
 
     {
-        List<Position> pos1 = new ArrayList<Position>();
+        List<Position> pos1 = new ArrayList<>();
         pos1.add(new Position("IBM", 100));
         pos1.add(new Position("MS", 200));
         Portfolio p1 = new Portfolio(pos1, "foo");
         portfolios.put(p1.getID(), p1);
 
-        List<Position> pos2 = new ArrayList<Position>();
+        List<Position> pos2 = new ArrayList<>();
         pos2.add(new Position("GOOG", 100));
         pos2.add(new Position("DUK", -200));
         Portfolio p2 = new Portfolio(pos2, "bar");
@@ -68,7 +68,7 @@ public class PortfolioBook {
     }
 
     private PortfolioBook(int nextID) {
-        this.nextID = nextID;
+        PortfolioBook.nextID = nextID;
     }
 
 }

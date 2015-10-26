@@ -1,7 +1,6 @@
 package com.wallerstein.volatility;
 
 import com.wallerstein.model.ReturnsTimeSeries;
-import org.jfree.data.time.TimeSeries;
 
 public interface VolatilityCalculator {
     /**

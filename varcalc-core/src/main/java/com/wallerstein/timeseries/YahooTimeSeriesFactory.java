@@ -24,7 +24,7 @@ final class YahooTimeSeriesFactory {
 
     private static final int DEFAULT_TIME_PERIOD = 4;
     private static final Map<String, TimeSeries> TIME_SERIES_MAP =
-            new HashMap<String, TimeSeries>();
+            new HashMap<>();
 
     private YahooTimeSeriesFactory() {
         throw new UnsupportedOperationException(

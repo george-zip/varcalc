@@ -5,8 +5,6 @@ import com.google.gson.GsonBuilder;
 import com.wallerstein.model.Portfolio;
 import com.wallerstein.web.gson.PortfolioGSONConverter;
 
-import javax.json.Json;
-import javax.json.JsonObjectBuilder;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
@@ -64,12 +62,8 @@ public class PortfolioMessageBodyHandler implements MessageBodyWriter<Portfolio>
                         OutputStream entityStream)
             throws IOException,
             WebApplicationException {
-        OutputStreamWriter writer = new OutputStreamWriter(entityStream, UTF_8);
-        try {
+        try (OutputStreamWriter writer = new OutputStreamWriter(entityStream, UTF_8)) {
             getGson().toJson(portfolio, writer);
-        }
-        finally {
-            writer.close();
         }
     }
 
@@ -84,12 +78,8 @@ public class PortfolioMessageBodyHandler implements MessageBodyWriter<Portfolio>
                               Annotation[] annotations, MediaType mediaType,
                               MultivaluedMap<String, String> httpHeaders,
                               InputStream entityStream) throws IOException, WebApplicationException {
-        InputStreamReader streamReader = new InputStreamReader(entityStream, UTF_8);
-        try {
+        try (InputStreamReader streamReader = new InputStreamReader(entityStream, UTF_8)) {
             return getGson().fromJson(streamReader, Portfolio.class);
-        }
-        finally {
-            streamReader.close();
         }
     }
 

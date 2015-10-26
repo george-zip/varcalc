@@ -24,7 +24,7 @@ public class PortfolioServicesTest {
 
     @Before
     public void setUp() throws Exception {
-        List<Position> positionList = new ArrayList<Position>();
+        List<Position> positionList = new ArrayList<>();
         positionList.add(new Position("XYZ", 100));
         positionList.add(new Position("ZZZ", 50));
         this.p = new Portfolio(positionList);
@@ -45,7 +45,7 @@ public class PortfolioServicesTest {
         ts2.add(new Day(6, 1, 2011), 148.8);
         ts2.add(new Day(7, 1, 2011), 158.3);
 
-        this.l = new ArrayList<CPTimeSeries>();
+        this.l = new ArrayList<>();
         l.add(new CPTimeSeries("XYZ", ts1, 5));
         l.add(new CPTimeSeries("ZZZ", ts2, 5));
 

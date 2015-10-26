@@ -72,12 +72,8 @@ public class PositionArrayMsgBodyHandler implements MessageBodyWriter<Position[]
                         OutputStream entityStream)
             throws IOException,
             WebApplicationException {
-        OutputStreamWriter writer = new OutputStreamWriter(entityStream, UTF_8);
-        try {
+        try (OutputStreamWriter writer = new OutputStreamWriter(entityStream, UTF_8)) {
             getGson().toJson(PositionArray, writer);
-        }
-        finally {
-            writer.close();
         }
     }
 
@@ -86,12 +82,8 @@ public class PositionArrayMsgBodyHandler implements MessageBodyWriter<Position[]
                                 Annotation[] annotations, MediaType mediaType,
                                 MultivaluedMap<String, String> httpHeaders,
                                 InputStream entityStream) throws IOException, WebApplicationException {
-        InputStreamReader streamReader = new InputStreamReader(entityStream, UTF_8);
-        try {
+        try (InputStreamReader streamReader = new InputStreamReader(entityStream, UTF_8)) {
             return getGson().fromJson(streamReader, Position[].class);
-        }
-        finally {
-            streamReader.close();
         }
     }
 

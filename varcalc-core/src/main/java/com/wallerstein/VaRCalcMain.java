@@ -28,8 +28,8 @@ final class VaRCalcMain extends AbstractModule {
         bind(HistoricalClosingPrices.class).to(YahooCPService.class);
     }
 
-    static Portfolio readPortfolioFile(final String fileName) throws IOException {
-        List<Position> positions = new ArrayList<Position>();
+    private static Portfolio readPortfolioFile(final String fileName) throws IOException {
+        List<Position> positions = new ArrayList<>();
         List<String> lines = FileUtils.readLines(new File(fileName));
         for (String s : lines) {
             String[] tokens = s.split(",");

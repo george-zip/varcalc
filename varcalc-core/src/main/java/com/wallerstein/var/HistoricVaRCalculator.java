@@ -63,8 +63,7 @@ public final class HistoricVaRCalculator implements VaRCalculator {
             final TimeSeries portfolioReturns) {
         @SuppressWarnings("unchecked")
         List<TimeSeriesDataItem> returnsList = portfolioReturns.getItems();
-        List<TimeSeriesDataItem> returnsList2 = new ArrayList<
-                TimeSeriesDataItem>(returnsList);
+        List<TimeSeriesDataItem> returnsList2 = new ArrayList<>(returnsList);
 
         class Foobar implements Comparator<TimeSeriesDataItem> {
 

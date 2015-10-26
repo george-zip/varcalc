@@ -3,7 +3,6 @@ package com.wallerstein.volatility;
 import java.util.List;
 
 import com.wallerstein.model.ReturnsTimeSeries;
-import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesDataItem;
 
 public class MovingAvgVolatilityCalculator implements VolatilityCalculator {

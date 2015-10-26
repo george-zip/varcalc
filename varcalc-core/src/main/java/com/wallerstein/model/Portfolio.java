@@ -2,7 +2,6 @@ package com.wallerstein.model;
 
 import org.jfree.data.time.TimeSeriesDataItem;
 
-import javax.sound.sampled.Port;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;

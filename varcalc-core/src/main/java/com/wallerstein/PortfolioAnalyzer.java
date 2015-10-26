@@ -14,7 +14,7 @@ import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
 
-public class PortfolioAnalyzer {
+class PortfolioAnalyzer {
 
     private final VaRCalculator vaRCalculator;
     private final VolatilityCalculator volatilityCalculator;

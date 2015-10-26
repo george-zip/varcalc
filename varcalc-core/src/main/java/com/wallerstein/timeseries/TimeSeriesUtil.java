@@ -2,8 +2,6 @@ package com.wallerstein.timeseries;
 
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
 import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesDataItem;
@@ -11,7 +9,7 @@ import org.jfree.data.time.TimeSeriesDataItem;
 /*
  * Utility class for jfree TimeSeries class.
  */
-public final class TimeSeriesUtil {
+final class TimeSeriesUtil {
 
     /**
      * Calculates the sum of values in the time series.
