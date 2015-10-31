@@ -5,25 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cbcae826-0b98-4245-b3bf-1084350ad008" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/var/HistoricVaRCalculator.java" afterPath="$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/var/HistoricVaRCalculator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/volatility/MovingAvgVolatilityCalculator.java" afterPath="$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/volatility/MovingAvgVolatilityCalculator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/messagebodyhandler/JSonObjectMsgBodyWriter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/model/VaR.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/gson/VaRGSONConverter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/messagebodyhandler/VaRMsgBodyHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/messagebodyhandler/PortfListMessageBodyHandler.java" afterPath="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/messagebodyhandler/PortfListMessageBodyHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/model/Portfolio.java" afterPath="$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/model/Portfolio.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/PortfolioAnalyzer.java" afterPath="$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/PortfolioAnalyzer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/gson/PortfolioArrayGSONConverter.java" afterPath="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/gson/PortfolioArrayGSONConverter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/PortfolioBook.java" afterPath="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/PortfolioBook.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/messagebodyhandler/PortfolioMessageBodyHandler.java" afterPath="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/messagebodyhandler/PortfolioMessageBodyHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/varcalc-core/src/test/java/com/wallerstein/portfolio/PortfolioServicesTest.java" afterPath="$PROJECT_DIR$/varcalc-core/src/test/java/com/wallerstein/portfolio/PortfolioServicesTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/PortfoliosService.java" afterPath="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/PortfoliosService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/model/Position.java" afterPath="$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/model/Position.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/messagebodyhandler/PositionArrayMsgBodyHandler.java" afterPath="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/messagebodyhandler/PositionArrayMsgBodyHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/gson/PositionGSONConverter.java" afterPath="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/gson/PositionGSONConverter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/messagebodyhandler/PositionMessageBodyHandler.java" afterPath="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/messagebodyhandler/PositionMessageBodyHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/timeseries/TimeSeriesUtil.java" afterPath="$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/timeseries/TimeSeriesUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/varcalc-core/src/test/java/com/wallerstein/timeseries/TimeSeriesUtilTest.java" afterPath="$PROJECT_DIR$/varcalc-core/src/test/java/com/wallerstein/timeseries/TimeSeriesUtilTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/VaRCalcMain.java" afterPath="$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/VaRCalcMain.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/volatility/VolatilityCalculator.java" afterPath="$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/volatility/VolatilityCalculator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/timeseries/YahooCPService.java" afterPath="$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/timeseries/YahooCPService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/timeseries/YahooTimeSeriesFactory.java" afterPath="$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/timeseries/YahooTimeSeriesFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/varcalc-web/pom.xml" afterPath="$PROJECT_DIR$/varcalc-web/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="varcalc.iws" />
@@ -52,54 +44,72 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Portfolio.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/model/Portfolio.java">
+      <file leaf-file-name="PortfoliosService.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/PortfoliosService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TimeSeriesUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/timeseries/TimeSeriesUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VaRCalcMain.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/VaRCalcMain.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="30" column="12" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
+            <state vertical-scroll-proportion="1.1550387">
+              <caret line="127" column="29" selection-start-line="127" selection-start-column="29" selection-end-line="127" selection-end-column="29" />
               <folding>
-                <element signature="e#1137#1139#0" expanded="false" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PortfolioMessageBodyHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/messagebodyhandler/PortfolioMessageBodyHandler.java">
+      <file leaf-file-name="PositionGSONConverter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/gson/PositionGSONConverter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <caret line="18" column="30" selection-start-line="12" selection-start-column="9" selection-end-line="18" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/varcalc-web/pom.xml">
+      <file leaf-file-name="PortfolioAnalyzer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/PortfolioAnalyzer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.30942622">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="20" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PortfolioGSONConverter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/gson/PortfolioGSONConverter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VaRMsgBodyHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/messagebodyhandler/VaRMsgBodyHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="31" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JSonObjectMsgBodyWriter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/messagebodyhandler/JSonObjectMsgBodyWriter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -108,7 +118,7 @@
         <entry file="file://$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/messagebodyhandler/PortfListMessageBodyHandler.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="74" column="8" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="8" />
+              <caret line="22" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -116,45 +126,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PositionMessageBodyHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/messagebodyhandler/PositionMessageBodyHandler.java">
+      <file leaf-file-name="MessageBodyWriter.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/javax/ws/rs/javax.ws.rs-api/2.0.1/javax.ws.rs-api-2.0.1-sources.jar!/javax/ws/rs/ext/MessageBodyWriter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="78" column="8" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="8" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="YahooTimeSeriesFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/timeseries/YahooTimeSeriesFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="YahooCPService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/timeseries/YahooCPService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-              <folding>
-                <element signature="e#838#840#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MovingAvgVolatilityCalculator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/volatility/MovingAvgVolatilityCalculator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <caret line="131" column="76" selection-start-line="127" selection-start-column="4" selection-end-line="131" selection-end-column="76" />
               <folding />
             </state>
           </provider>
@@ -192,28 +168,32 @@
         <option value="$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/model/Position.java" />
         <option value="$PROJECT_DIR$/varcalc-web/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/PositionMessageBodyWriter.java" />
-        <option value="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/gson/PositionGSONConverter.java" />
         <option value="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/PositionMessageBodyHandler.java" />
         <option value="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/MessageBodyHandler.java" />
         <option value="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/PortfolioMessageBodyHandler.java" />
-        <option value="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/gson/PortfolioArrayGSONConverter.java" />
         <option value="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/PortfListMessageBodyWriter.java" />
         <option value="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/PortfListMessageBodyHandler.java" />
         <option value="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/gson/PortfolioGSONConverter.java" />
         <option value="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/gson/PositionArrayGSONConverter.java" />
         <option value="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/messagebodyhandler/PositionArrayMsgBodyHandler.java" />
-        <option value="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/PortfolioBook.java" />
-        <option value="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/PortfoliosService.java" />
         <option value="$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/PortfolioAnalyzer.java" />
-        <option value="$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/timeseries/TimeSeriesUtil.java" />
         <option value="$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/VaRCalcMain.java" />
         <option value="$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/volatility/MovingAvgVolatilityCalculator.java" />
         <option value="$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/model/Portfolio.java" />
         <option value="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/messagebodyhandler/PortfolioMessageBodyHandler.java" />
-        <option value="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/messagebodyhandler/PortfListMessageBodyHandler.java" />
-        <option value="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/messagebodyhandler/PositionMessageBodyHandler.java" />
         <option value="$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/timeseries/YahooTimeSeriesFactory.java" />
         <option value="$PROJECT_DIR$/varcalc-web/pom.xml" />
+        <option value="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/messagebodyhandler/PortfListMessageBodyHandler.java" />
+        <option value="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/gson/PortfolioArrayGSONConverter.java" />
+        <option value="$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/timeseries/TimeSeriesUtil.java" />
+        <option value="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/PortfolioBook.java" />
+        <option value="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/messagebodyhandler/PositionMessageBodyHandler.java" />
+        <option value="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/gson/PositionGSONConverter.java" />
+        <option value="$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/model/VaR.java" />
+        <option value="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/gson/VaRGSONConverter.java" />
+        <option value="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/messagebodyhandler/VaRMsgBodyHandler.java" />
+        <option value="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/messagebodyhandler/JSonObjectMsgBodyWriter.java" />
+        <option value="$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/PortfoliosService.java" />
       </list>
     </option>
   </component>
@@ -279,8 +259,9 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="height" value="821" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -489,7 +470,7 @@
     <property name="dynamic.classpath" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="FullScreen" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
@@ -980,21 +961,21 @@
       <workItem from="1445341030968" duration="14471000" />
       <workItem from="1445695948946" duration="397000" />
       <workItem from="1445775220000" duration="161000" />
-      <workItem from="1445776059139" duration="23503000" />
+      <workItem from="1445776059139" duration="30633000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47999000" />
+    <option name="totallyTimeSpent" value="55129000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="false" />
+    <frame x="0" y="23" width="1440" height="821" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35846373" sideWeight="0.5114449" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10729614" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10729614" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1002,13 +983,13 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997155" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.49427754" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283582" sideWeight="0.49427754" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39925373" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35820895" sideWeight="0.48855507" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40967283" sideWeight="0.48855507" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329602" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2725322" sideWeight="0.4915254" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1075,73 +1056,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/varcalc-web/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="48" column="21" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/varcalc-core/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="25" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/PortfoliosService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="17" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/model/Portfolio.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="28" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/varcalc-web/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="28" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/model/Position.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/varcalc-web/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/varcalc-core/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="25" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/containers/jersey-container-servlet-core/2.22.1/jersey-container-servlet-core-2.22.1.jar!/org/glassfish/jersey/servlet/ServletContainer.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.21582733">
@@ -1280,9 +1194,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4">
           <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1294,55 +1206,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/gson/PositionGSONConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/ws/rs/javax.ws.rs-api/2.0.1/javax.ws.rs-api-2.0.1-sources.jar!/javax/ws/rs/ext/MessageBodyWriter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="69" column="17" selection-start-line="69" selection-start-column="17" selection-end-line="69" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.4/gson-2.4.jar!/com/google/gson/GsonBuilder.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35491607">
           <caret line="161" column="23" selection-start-line="161" selection-start-column="23" selection-end-line="161" selection-end-column="23" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/ws/rs/javax.ws.rs-api/2.0.1/javax.ws.rs-api-2.0.1-sources.jar!/javax/ws/rs/ext/MessageBodyReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3144208">
-          <caret line="98" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/gson/PortfolioGSONConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="48" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/gson/PortfolioArrayGSONConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="17" selection-start-line="0" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1364,29 +1232,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/PortfoliosService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/PortfolioBook.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
-          <folding>
-            <element signature="e#1246#1247#0" expanded="true" />
-            <element signature="e#1290#1291#0" expanded="true" />
-            <element signature="e#2220#2221#0" expanded="true" />
-            <element signature="e#2265#2266#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/varcalc-core/src/test/java/com/wallerstein/portfolio/PortfolioTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1395,41 +1240,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/PortfolioAnalyzer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/model/ReturnsTimeSeries.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
           <folding>
-            <element signature="e#306#307#0" expanded="true" />
-            <element signature="e#344#345#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/timeseries/TimeSeriesUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/VaRCalcMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="12" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
-          <folding>
-            <element signature="e#1137#1139#0" expanded="false" />
+            <element signature="e#306#307#0" expanded="false" />
+            <element signature="e#344#345#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1441,14 +1258,6 @@
           <folding>
             <element signature="e#838#840#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/volatility/MovingAvgVolatilityCalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1468,26 +1277,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/messagebodyhandler/PortfListMessageBodyHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="74" column="8" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/messagebodyhandler/PositionMessageBodyHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="78" column="8" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/timeseries/YahooTimeSeriesFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1498,9 +1287,204 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/varcalc-web/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30942622">
+        <state vertical-scroll-proportion="0.0">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/timeseries/TimeSeriesUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="95" column="70" selection-start-line="95" selection-start-column="8" selection-end-line="95" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/gson/PortfolioArrayGSONConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21526419">
+          <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/PortfolioBook.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23483366">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/gson/VaRGSONConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23483366">
+          <caret line="8" column="29" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/model/VaR.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26418787">
+          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+          <folding>
+            <element signature="e#113#114#0" expanded="false" />
+            <element signature="e#147#148#0" expanded="false" />
+            <element signature="e#179#180#0" expanded="false" />
+            <element signature="e#207#208#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/ws/rs/javax.ws.rs-api/2.0.1/javax.ws.rs-api-2.0.1-sources.jar!/javax/ws/rs/ext/MessageBodyReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="143" column="0" selection-start-line="139" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/portfolio/PortfolioServices.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/var/HistoricVaRCalculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="114" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="114" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/VaRCalcMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="61" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/var/VaRCalculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/messagebodyhandler/PositionMessageBodyHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="81" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/gson/PortfolioGSONConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/gson/PositionGSONConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="30" selection-start-line="12" selection-start-column="9" selection-end-line="18" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/ws/rs/javax.ws.rs-api/2.0.1/javax.ws.rs-api-2.0.1-sources.jar!/javax/ws/rs/ext/MessageBodyWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="131" column="76" selection-start-line="127" selection-start-column="4" selection-end-line="131" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/messagebodyhandler/VaRMsgBodyHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/messagebodyhandler/PortfListMessageBodyHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/messagebodyhandler/JSonObjectMsgBodyWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/PortfolioAnalyzer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/volatility/MovingAvgVolatilityCalculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27131784">
+          <caret line="7" column="42" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varcalc-core/src/main/java/com/wallerstein/volatility/VolatilityCalculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15503876">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varcalc-web/src/main/java/com/wallerstein/web/PortfoliosService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1550387">
+          <caret line="127" column="29" selection-start-line="127" selection-start-column="29" selection-end-line="127" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

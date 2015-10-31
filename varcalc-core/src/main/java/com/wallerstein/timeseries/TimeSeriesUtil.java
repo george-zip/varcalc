@@ -93,6 +93,6 @@ final class TimeSeriesUtil {
     }
 
     private TimeSeriesUtil() {
-        throw new AssertionError();
+        throw new AssertionError("TimeSeriesUtil is a utility class");
     }
 }

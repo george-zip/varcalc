@@ -6,14 +6,15 @@ import com.wallerstein.model.Position;
 import java.lang.reflect.Type;
 
 public class PositionGSONConverter implements JsonSerializer<Position>, JsonDeserializer<Position> {
+
     public JsonElement serialize(final Position src,
                                  Type typeOfSrc,
-                                 JsonSerializationContext context){
-        JsonObject jsonObject= new JsonObject();
+                                 JsonSerializationContext context) {
+        JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("symbol", src.getSecurityID());
         jsonObject.addProperty("quantity", src.getQuantity());
         jsonObject.addProperty("side", src.getSide().toString());
-        JsonObject jsonDataObject= new JsonObject();
+        JsonObject jsonDataObject = new JsonObject();
         jsonDataObject.add("data", jsonObject);
         return jsonDataObject;
     }

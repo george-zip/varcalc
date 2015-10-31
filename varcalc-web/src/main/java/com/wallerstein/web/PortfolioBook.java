@@ -6,11 +6,10 @@ import com.wallerstein.model.Position;
 import java.util.*;
 import javax.servlet.ServletContext;
 
-public class PortfolioBook {
+public final class PortfolioBook {
 
     private static String ATTRIBUTE_NAME = "PortfolioBook";
     private Map<String, Portfolio> portfolios = new TreeMap<>();
-    private static int nextID = 0;
 
     {
         List<Position> pos1 = new ArrayList<>();
@@ -26,9 +25,9 @@ public class PortfolioBook {
         portfolios.put(p2.getID(), p2);
     }
 
-    public static PortfolioBook getPortfolioBook(ServletContext servletContext) {
-        if(servletContext.getAttribute(ATTRIBUTE_NAME) == null) {
-            PortfolioBook pb = new PortfolioBook(1);
+    public static PortfolioBook getPortfolioBook(final ServletContext servletContext) {
+        if (servletContext.getAttribute(ATTRIBUTE_NAME) == null) {
+            PortfolioBook pb = new PortfolioBook();
             servletContext.setAttribute(ATTRIBUTE_NAME, pb);
         }
         return (PortfolioBook) servletContext.getAttribute(ATTRIBUTE_NAME);
@@ -39,26 +38,24 @@ public class PortfolioBook {
     }
 
     public synchronized Portfolio getPortfolioByID(String id) {
-        if(portfolios.containsKey(id)) {
+        if (portfolios.containsKey(id)) {
             return portfolios.get(id);
         }
         throw new IllegalArgumentException(id + " not found");
     }
 
-    public synchronized void deletePortfolioByID(String id) {
-        if(portfolios.containsKey(id)) {
+    public synchronized void deletePortfolioByID(final String id) {
+        if (portfolios.containsKey(id)) {
             portfolios.remove(id);
-        }
-        else {
+        } else {
             throw new IllegalArgumentException(id + " not found");
         }
     }
 
-    public synchronized void updatePortfolioByID(String id, Portfolio portfolio) {
-        if(portfolios.containsKey(id)) {
+    public synchronized void updatePortfolioByID(final String id, final Portfolio portfolio) {
+        if (portfolios.containsKey(id)) {
             portfolios.put(id, portfolio);
-        }
-        else {
+        } else {
             throw new IllegalArgumentException(id + " not found");
         }
     }
@@ -67,8 +64,7 @@ public class PortfolioBook {
         return portfolios.values().toArray(new Portfolio[portfolios.size()]);
     }
 
-    private PortfolioBook(int nextID) {
-        PortfolioBook.nextID = nextID;
+    private PortfolioBook() {
     }
 
 }

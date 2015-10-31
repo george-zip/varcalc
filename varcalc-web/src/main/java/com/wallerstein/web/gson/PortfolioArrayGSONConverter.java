@@ -12,11 +12,11 @@ public class PortfolioArrayGSONConverter implements JsonSerializer<Portfolio[]>,
 
     @Override
     public Portfolio[] deserialize(JsonElement json, Type typeOfT,
-                             JsonDeserializationContext context) throws JsonParseException {
+                                   JsonDeserializationContext context) throws JsonParseException {
         JsonArray jArray = json.getAsJsonArray();
         Portfolio[] pArray = new Portfolio[jArray.size()];
         int index = 0;
-        for(JsonElement jsonE : jArray) {
+        for (JsonElement jsonE : jArray) {
             Portfolio tmp = portfolioGSONConverter.deserialize(jsonE, Portfolio.class, context);
             pArray[index++] = tmp;
         }
@@ -26,9 +26,9 @@ public class PortfolioArrayGSONConverter implements JsonSerializer<Portfolio[]>,
     @Override
     public JsonElement serialize(final Portfolio[] src,
                                  Type typeOfSrc,
-                                 JsonSerializationContext context){
+                                 JsonSerializationContext context) {
         JsonArray jsonArray = new JsonArray();
-        for(Portfolio portfolio : src) {
+        for (Portfolio portfolio : src) {
             JsonElement tmp = portfolioGSONConverter.serialize(portfolio, Portfolio.class, context);
             jsonArray.add(tmp);
         }

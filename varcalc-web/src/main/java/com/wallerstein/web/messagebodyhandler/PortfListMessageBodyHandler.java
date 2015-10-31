@@ -21,7 +21,8 @@ import java.lang.reflect.Type;
 @Provider
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class PortfListMessageBodyHandler implements MessageBodyWriter<Portfolio[]>,
+public class PortfListMessageBodyHandler implements
+        MessageBodyWriter<Portfolio[]>,
         MessageBodyReader<Portfolio[]> {
 
     private GsonBuilder gsonBuilder;
@@ -30,11 +31,12 @@ public class PortfListMessageBodyHandler implements MessageBodyWriter<Portfolio[
     private static final String UTF_8 = "UTF-8";
 
     private Gson getGson() {
-        if(gsonBuilder == null) {
+        if (gsonBuilder == null) {
             gsonBuilder = new GsonBuilder();
-            gsonBuilder.registerTypeAdapter(Portfolio[].class, new PortfolioArrayGSONConverter());
+            gsonBuilder.registerTypeAdapter(
+                    Portfolio[].class, new PortfolioArrayGSONConverter());
         }
-        if(gson == null) {
+        if (gson == null) {
             gson = gsonBuilder.create();
         }
         return gson;
@@ -72,7 +74,8 @@ public class PortfListMessageBodyHandler implements MessageBodyWriter<Portfolio[
                         OutputStream entityStream)
             throws IOException,
             WebApplicationException {
-        try (OutputStreamWriter writer = new OutputStreamWriter(entityStream, UTF_8)) {
+        try (OutputStreamWriter writer = new OutputStreamWriter(
+                entityStream, UTF_8)) {
             getGson().toJson(portfolioArray, writer);
         }
     }
@@ -81,8 +84,10 @@ public class PortfListMessageBodyHandler implements MessageBodyWriter<Portfolio[
     public Portfolio[] readFrom(Class<Portfolio[]> type, Type genericType,
                               Annotation[] annotations, MediaType mediaType,
                               MultivaluedMap<String, String> httpHeaders,
-                              InputStream entityStream) throws IOException, WebApplicationException {
-        try (InputStreamReader streamReader = new InputStreamReader(entityStream, UTF_8)) {
+                              InputStream entityStream) throws IOException,
+                              WebApplicationException {
+        try (InputStreamReader streamReader = new InputStreamReader(
+                entityStream, UTF_8)) {
             return getGson().fromJson(streamReader, Portfolio[].class);
         }
     }
