@@ -13,16 +13,12 @@ public final class PortfolioBook {
 
     {
         List<Position> pos1 = new ArrayList<>();
-        pos1.add(new Position("IBM", 100));
-        pos1.add(new Position("MS", 200));
-        Portfolio p1 = new Portfolio(pos1, "foo");
+        pos1.add(new Position("IBM", 1000));
+        pos1.add(new Position("MS", 2000));
+        pos1.add(new Position("DUK", 1000));
+        pos1.add(new Position("MSFT", -2500));
+        Portfolio p1 = new Portfolio(pos1, "chris' porfolio");
         portfolios.put(p1.getID(), p1);
-
-        List<Position> pos2 = new ArrayList<>();
-        pos2.add(new Position("GOOG", 100));
-        pos2.add(new Position("DUK", -200));
-        Portfolio p2 = new Portfolio(pos2, "bar");
-        portfolios.put(p2.getID(), p2);
     }
 
     public static PortfolioBook getPortfolioBook(final ServletContext servletContext) {
@@ -33,8 +29,13 @@ public final class PortfolioBook {
         return (PortfolioBook) servletContext.getAttribute(ATTRIBUTE_NAME);
     }
 
-    public synchronized void addPortfolio(final Portfolio p) {
-        portfolios.put(p.getID(), p);
+    public synchronized void addPortfolio(final Portfolio newP) throws IllegalArgumentException {
+        for(Portfolio p : portfolios.values()) {
+            if(p.getName().equals(newP.getName())) {
+                throw new IllegalArgumentException(p.getName() + " already exists");
+            }
+        }
+        portfolios.put(newP.getID(), newP);
     }
 
     public synchronized Portfolio getPortfolioByID(String id) {

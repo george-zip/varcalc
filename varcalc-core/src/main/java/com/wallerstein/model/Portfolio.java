@@ -2,9 +2,7 @@ package com.wallerstein.model;
 
 import org.jfree.data.time.TimeSeriesDataItem;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * A immutable collection of positions.

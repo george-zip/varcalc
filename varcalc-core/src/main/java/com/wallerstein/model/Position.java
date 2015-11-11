@@ -21,7 +21,7 @@ public final class Position {
         if(quantity == 0.0) {
             throw new InvalidParameterException("Quantity must be positive or negative.");
         }
-        this.securityID = securityID;
+        this.securityID = securityID.toUpperCase();
         this.quantity = quantity;
     }
 

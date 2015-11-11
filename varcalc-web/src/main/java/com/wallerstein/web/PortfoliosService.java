@@ -28,6 +28,7 @@ public final class PortfoliosService {
             (closingPricesSource, portfolioServices);
     private final VolatilityCalculator volatilityCalculator = new MovingAvgVolatilityCalculator();
 
+    private final int UnprocessableEntity = 442;
 
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
@@ -40,7 +41,12 @@ public final class PortfoliosService {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response get(Portfolio portfolio, @Context ServletContext context) {
-        PortfolioBook.getPortfolioBook(context).addPortfolio(portfolio);
+        try {
+            PortfolioBook.getPortfolioBook(context).addPortfolio(portfolio);
+        }
+        catch(IllegalArgumentException e) {
+            return Response.status(UnprocessableEntity).build();
+        }
         return Response.ok().build();
     }
 
@@ -56,7 +62,6 @@ public final class PortfoliosService {
     @Path("{portfolio_id}")
     public Response delete(@Context ServletContext context,
                             @PathParam("portfolio_id") String id) {
-        System.out.println("DELETE");
         PortfolioBook.getPortfolioBook(context).deletePortfolioByID(id);
         return Response.ok().build();
     }
@@ -114,14 +119,38 @@ public final class PortfoliosService {
         return Response.ok().build();
     }
 
+    @DELETE
+    @Path("{portfolio_id}/positions/{symbol}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response deletePosition(@Context ServletContext context,
+                                   @PathParam("portfolio_id") String id,
+                                   @PathParam("symbol") String symbol) {
+        Portfolio portfolio = PortfolioBook.getPortfolioBook(context).getPortfolioByID(id);
+        List<Position> positionList = new ArrayList<>(portfolio.numPositions());
+        for(Position pos : portfolio) {
+            if(!pos.getSecurityID().equals(symbol)) {
+                positionList.add(pos);
+            }
+        }
+        Portfolio newPortfolio = new Portfolio(positionList, portfolio.getName(), portfolio.getID());
+        PortfolioBook.getPortfolioBook(context).updatePortfolioByID(id, newPortfolio);
+        return Response.ok().build();
+    }
+
     @GET
     @Path("{portfolio_id}/var")
     @Produces(MediaType.APPLICATION_JSON)
-    public VaR getVaR(@Context ServletContext context, @PathParam("portfolio_id") String id,
+    public JsonElement getVaR(@Context ServletContext context, @PathParam("portfolio_id") String id,
                @DefaultValue("0.95") @QueryParam("var_percentile") double varPercentile,
                @DefaultValue("1") @QueryParam("var_days") int varDays) {
         Portfolio portfolio = PortfolioBook.getPortfolioBook(context).getPortfolioByID(id);
-        return new VaR(vaRCalculator.calculate(portfolio, varPercentile, varDays));
+        double var = vaRCalculator.calculate(portfolio, varPercentile, varDays);
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("var", var);
+        JsonObject jsonDataObject = new JsonObject();
+        jsonDataObject.add("data", jsonObject);
+        return jsonDataObject;
     }
 
     @GET

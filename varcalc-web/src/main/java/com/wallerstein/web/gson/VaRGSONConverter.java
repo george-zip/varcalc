@@ -12,7 +12,7 @@ public class VaRGSONConverter implements JsonSerializer<VaR>, JsonDeserializer<V
                                  Type typeOfSrc,
                                  JsonSerializationContext context) {
         JsonObject jsonObject = new JsonObject();
-        jsonObject.addProperty("VaR", src.getValue());
+        jsonObject.addProperty("var", src.getValue());
         JsonObject jsonDataObject = new JsonObject();
         jsonDataObject.add("data", jsonObject);
         return jsonDataObject;
@@ -21,7 +21,7 @@ public class VaRGSONConverter implements JsonSerializer<VaR>, JsonDeserializer<V
     public VaR deserialize(JsonElement var1, Type var2, JsonDeserializationContext var3)
             throws JsonParseException {
         JsonObject dataJson = var1.getAsJsonObject().get("data").getAsJsonObject();
-        double value = dataJson.get("VaR").getAsDouble();
+        double value = dataJson.get("var").getAsDouble();
         return new VaR(value);
     }
 

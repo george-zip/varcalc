@@ -31,7 +31,8 @@ public final class PortfolioServices {
 
             if (numEntries != -1 && l.size() != numEntries) {
                 throw new IllegalArgumentException(
-                        "Time series is not equal for " + cpTimeSeries.getSymbol());
+                        "Bad time series for " + cpTimeSeries.getSymbol() + ": "
+                                + l.size() + " vs. " + numEntries);
             }
 
             numEntries = l.size();
