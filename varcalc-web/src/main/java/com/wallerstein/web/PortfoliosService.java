@@ -145,7 +145,7 @@ public final class PortfoliosService {
                @DefaultValue("0.95") @QueryParam("var_percentile") double varPercentile,
                @DefaultValue("1") @QueryParam("var_days") int varDays) {
         Portfolio portfolio = PortfolioBook.getPortfolioBook(context).getPortfolioByID(id);
-        double var = vaRCalculator.calculate(portfolio, varPercentile, varDays);
+        double var = vaRCalculator.calculateWorstLoss(portfolio, varPercentile, varDays);
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("var", var);
         JsonObject jsonDataObject = new JsonObject();
@@ -158,7 +158,7 @@ public final class PortfoliosService {
     @Produces(MediaType.APPLICATION_JSON)
     public JsonElement getNMV(@Context ServletContext context, @PathParam("portfolio_id") String id) {
         Portfolio portfolio = PortfolioBook.getPortfolioBook(context).getPortfolioByID(id);
-        List<CPTimeSeries> portfClosingPrices = closingPricesSource.getClosingPricesForPortfolio(portfolio);
+        List<ClosingPriceTS> portfClosingPrices = closingPricesSource.getClosingPricesForPortfolio(portfolio);
         double nmv = portfolio.getNMV(portfClosingPrices);
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("nmv", nmv);
@@ -172,9 +172,9 @@ public final class PortfoliosService {
     @Produces(MediaType.APPLICATION_JSON)
     public JsonElement getVol(@Context ServletContext context, @PathParam("portfolio_id") String id) {
         Portfolio portfolio = PortfolioBook.getPortfolioBook(context).getPortfolioByID(id);
-        List<CPTimeSeries> portfClosingPrices = closingPricesSource.getClosingPricesForPortfolio(portfolio);
+        List<ClosingPriceTS> portfClosingPrices = closingPricesSource.getClosingPricesForPortfolio(portfolio);
         ReturnsTimeSeries returnsTimeSeries = portfolioServices.calculatePortfolioReturns(portfClosingPrices, portfolio);
-        double volatility = volatilityCalculator.calculateVolatility(returnsTimeSeries);
+        double volatility = volatilityCalculator.calculateDailyVolatility(returnsTimeSeries);
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("vol", volatility);
         JsonObject jsonDataObject = new JsonObject();

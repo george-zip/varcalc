@@ -56,6 +56,11 @@
             <artifactId>gson</artifactId>
             <version>2.4</version>
         </dependency>
+        <dependency>
+            <groupId>com.sun.jersey.jersey-test-framework</groupId>
+            <artifactId>jersey-test-framework-grizzly2</artifactId>
+            <version>1.19</version>
+        </dependency>
     </dependencies>
 
     <properties>

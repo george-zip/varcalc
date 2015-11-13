@@ -84,13 +84,13 @@ final class VaRCalcMain extends AbstractModule {
 //                + cf.format(PortfolioUtil.calculateNMV(
 //                portfolioTS, portfolio)));
 //        System.out.println("Historic 1 day VaR @ 95%: "
-//                + cf.format(calc.calculate(portfolio, PERCENTILE, 1)));
+//                + cf.format(calc.calculateWorstLoss(portfolio, PERCENTILE, 1)));
 //
 //        VolatilityCalculator vc = new MovingAvgVolatilityCalculator();
 //        ReturnsTimeSeries returnsTimeSeries = mc.portfolioServices.calculatePortfolioReturns(
 //                portfolioTS, portfolio);
 //
-//        double volatility = vc.calculateVolatility(returnsTimeSeries.getDataSet());
+//        double volatility = vc.calculateDailyVolatility(returnsTimeSeries.getDataSet());
 //
 //        System.out.println("Simple portfolio volatility: " + pf.format(
 //                volatility));

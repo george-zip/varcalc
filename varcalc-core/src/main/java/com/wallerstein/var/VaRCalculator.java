@@ -12,7 +12,7 @@ public interface VaRCalculator {
      *            number of days
      * @return VaR in portfolio value
      */
-    double calculate(final Portfolio portfolio,
-                     final double percentile,
-                     final int interval);
+    double calculateWorstLoss(final Portfolio portfolio,
+                              final double percentile,
+                              final int interval);
 }

@@ -1,11 +1,9 @@
 package com.wallerstein.model;
 
-import org.jfree.data.time.TimeSeriesDataItem;
-
 import java.util.*;
 
 /**
- * A immutable collection of positions.
+ * An immutable collection of positions.
  */
 public final class Portfolio implements Iterable<Position> {
 
@@ -54,17 +52,34 @@ public final class Portfolio implements Iterable<Position> {
         return positions.iterator();
     }
 
-    public double getNMV(final List<CPTimeSeries> closingPrices) {
+    private interface ApplyIt {
+        double apply(double input);
+    }
+
+    private double getMV(final List<ClosingPriceTS> closingPrices, ApplyIt f) {
         double retVal = 0.0;
 
-        for (CPTimeSeries cpTimeSeries : closingPrices) {
-            int lastItem = cpTimeSeries.getDataSet().getItemCount() - 1;
-            TimeSeriesDataItem di = cpTimeSeries.getDataSet().getDataItem(
-                    lastItem);
-            retVal += di.getValue().doubleValue()
-                    * this.getPosition(cpTimeSeries.getSymbol()).getQuantity();
+        for (ClosingPriceTS closingPriceTS : closingPrices) {
+            retVal += closingPriceTS.getPreviousClose()
+                    * f.apply(getPosition(closingPriceTS.getSymbol()).getQuantity());
         }
         return retVal;
+    }
+
+    public double getNMV(final List<ClosingPriceTS> closingPrices) {
+        return getMV(closingPrices, new ApplyIt() {
+            public double apply(double input) {
+                return input;
+            }
+        });
+    }
+
+    public double getGMV(final List<ClosingPriceTS> closingPrices) {
+        return getMV(closingPrices, new ApplyIt() {
+            public double apply(double input) {
+                return Math.abs(input);
+            }
+        });
     }
 
     public String getID() {

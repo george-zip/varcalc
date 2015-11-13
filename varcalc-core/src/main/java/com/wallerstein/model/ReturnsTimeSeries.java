@@ -36,8 +36,9 @@ public class ReturnsTimeSeries {
         double lastClose = 0.0;
         for (TimeSeriesDataItem di : l) {
             if (lastClose != 0.0) {
+                // log returns
                 retVal.add(di.getPeriod(),
-                        (di.getValue().doubleValue() / lastClose) - 1);
+                        Math.log(di.getValue().doubleValue() / lastClose));
             }
             lastClose = di.getValue().doubleValue();
         }

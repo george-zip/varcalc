@@ -3,7 +3,7 @@ package com.wallerstein.model;
 import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesDataItem;
 
-public final class CPTimeSeries {
+public final class ClosingPriceTS {
 
     // TODO: Add equality support
 
@@ -11,7 +11,7 @@ public final class CPTimeSeries {
     private final TimeSeries dataSet;
     private final int yearInterval;
 
-    public CPTimeSeries(final String symbol, final TimeSeries dataSet, final int yearInterval) {
+    public ClosingPriceTS(final String symbol, final TimeSeries dataSet, final int yearInterval) {
         this.symbol = symbol;
         this.dataSet = dataSet;
         this.yearInterval = yearInterval;
@@ -29,7 +29,7 @@ public final class CPTimeSeries {
         return yearInterval;
     }
 
-    double getClosePrice() {
+    public double getPreviousClose() {
         TimeSeriesDataItem di = getDataSet().getDataItem(getDataSet().getItemCount() - 1);
         return di.getValue().doubleValue();
     }

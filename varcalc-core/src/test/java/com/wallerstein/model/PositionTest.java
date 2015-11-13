@@ -1,13 +1,12 @@
-package com.wallerstein.portfolio;
+package com.wallerstein.model;
 
-import com.wallerstein.model.Position;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import java.security.InvalidParameterException;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class PositionTest {
 

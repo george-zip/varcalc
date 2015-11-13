@@ -3,7 +3,7 @@ package com.wallerstein.var;
 import com.google.inject.Inject;
 import com.wallerstein.model.Portfolio;
 import com.wallerstein.portfolio.PortfolioServices;
-import com.wallerstein.model.CPTimeSeries;
+import com.wallerstein.model.ClosingPriceTS;
 import com.wallerstein.timeseries.HistoricalClosingPrices;
 import com.wallerstein.model.ReturnsTimeSeries;
 import org.jfree.data.time.TimeSeries;
@@ -37,15 +37,15 @@ public final class HistoricVaRCalculator implements VaRCalculator {
      * @param days number of days
      * @return calculated VaR
      */
-    public double calculate(final Portfolio portfolio,
-                            final double percentile,
-                            final int days) {
+    public double calculateWorstLoss(final Portfolio portfolio,
+                                     final double percentile,
+                                     final int days) {
 
         if (portfolio.numPositions() < 1 || days < 1) {
             return 0.0;
         }
 
-        List<CPTimeSeries> portfClosingPrices = closingPricesSource.getClosingPricesForPortfolio(portfolio);
+        List<ClosingPriceTS> portfClosingPrices = closingPricesSource.getClosingPricesForPortfolio(portfolio);
         if (portfClosingPrices.size() > 0) {
             ReturnsTimeSeries portfolioReturns = portfolioServices.calculatePortfolioReturns(portfClosingPrices, portfolio);
             List<TimeSeriesDataItem> returnsList = sortReturns(portfolioReturns.getDataSet());
@@ -63,19 +63,19 @@ public final class HistoricVaRCalculator implements VaRCalculator {
             final TimeSeries portfolioReturns) {
         @SuppressWarnings("unchecked")
         List<TimeSeriesDataItem> returnsList = portfolioReturns.getItems();
-        List<TimeSeriesDataItem> returnsList2 = new ArrayList<>(returnsList);
+        List<TimeSeriesDataItem> retVal = new ArrayList<>(returnsList);
 
-        class Foobar implements Comparator<TimeSeriesDataItem> {
+        class TSSort implements Comparator<TimeSeriesDataItem> {
 
-            public int compare(final TimeSeriesDataItem arg0,
-                    final TimeSeriesDataItem arg1) {
-                if (arg0.getValue().doubleValue() < arg1.getValue()
-                        .doubleValue()) {
-                    return -1;
-                }
-                if (arg0.getValue().doubleValue() > arg1.getValue()
+            public int compare(final TimeSeriesDataItem o1,
+                    final TimeSeriesDataItem o2) {
+                if (o1.getValue().doubleValue() < o2.getValue()
                         .doubleValue()) {
                     return 1;
+                }
+                if (o1.getValue().doubleValue() > o2.getValue()
+                        .doubleValue()) {
+                    return -1;
                 }
                 return 0;
             }
@@ -83,18 +83,28 @@ public final class HistoricVaRCalculator implements VaRCalculator {
         }
 
         try {
-            Collections.sort(returnsList2, new Foobar());
+            Collections.sort(retVal, new TSSort());
         } catch (Exception e) {
-            System.out.println("e = " + e);
+            throw new UnsupportedOperationException("Error while sorting returns: " + e.getMessage(), e);
         }
-        return returnsList2;
+
+        return retVal;
     }
 
     private double getNthPercentile(final List<TimeSeriesDataItem> returnsList,
             final double percentile) {
-        return returnsList
-                .get((int) Math.floor(returnsList.size() * percentile))
-                .getValue().doubleValue();
+        double retVal = 0.0;
+        int idx1 = (int) Math.floor((returnsList.size() - 1) * percentile);
+        int idx2 = (int) Math.ceil((returnsList.size() - 1) * percentile);
+        if(idx1 == idx2) {
+            retVal = returnsList.get(idx1).getValue().doubleValue();
+        }
+        else {
+            // poor man's linear interpolation
+            retVal = (returnsList.get(idx1).getValue().doubleValue() +
+                    returnsList.get(idx2).getValue().doubleValue()) / 2.0;
+        }
+        return retVal;
     }
 
     private double scaleVaR(final double unscaledVaR, final int days) {

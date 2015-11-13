@@ -9,5 +9,5 @@ public interface VolatilityCalculator {
      *            time series
      * @return volatility
      */
-    double calculateVolatility(ReturnsTimeSeries returnsTimeSeries);
+    double calculateDailyVolatility(ReturnsTimeSeries returnsTimeSeries);
 }

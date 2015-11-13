@@ -56,7 +56,7 @@ final class TimeSeriesUtil {
                                        final TimeSeries ts2) {
         if (ts1.getItemCount() != ts2.getItemCount()) {
             throw new IllegalArgumentException(
-                    "Cannot calculate covariance on unequal series");
+                    "Cannot calculateWorstLoss covariance on unequal series");
         }
 
         @SuppressWarnings("unchecked")

@@ -1,7 +1,7 @@
 package com.wallerstein;
 
 import com.google.inject.Inject;
-import com.wallerstein.model.CPTimeSeries;
+import com.wallerstein.model.ClosingPriceTS;
 import com.wallerstein.model.Portfolio;
 import com.wallerstein.model.Position;
 import com.wallerstein.model.ReturnsTimeSeries;
@@ -42,14 +42,14 @@ class PortfolioAnalyzer {
             System.out.println(output);
         }
         NumberFormat cf = NumberFormat.getCurrencyInstance(Locale.US);
-        List<CPTimeSeries> portfClosingPrices = closingPricesSource.getClosingPricesForPortfolio(portfolio);
+        List<ClosingPriceTS> portfClosingPrices = closingPricesSource.getClosingPricesForPortfolio(portfolio);
         System.out.println("\nPortfolio MV as of yesterday's close: " + cf.format(portfolio.getNMV(portfClosingPrices)));
 
         System.out.println("Historic " + VAR_DAYS + " day(s) VaR @ " + VAR_PERCENTILE * 100 + "%: "
-                + cf.format(vaRCalculator.calculate(portfolio, VAR_PERCENTILE, VAR_DAYS)));
+                + cf.format(vaRCalculator.calculateWorstLoss(portfolio, VAR_PERCENTILE, VAR_DAYS)));
 
         ReturnsTimeSeries returnsTimeSeries = portfolioServices.calculatePortfolioReturns(portfClosingPrices, portfolio);
-        double volatility = volatilityCalculator.calculateVolatility(returnsTimeSeries);
+        double volatility = volatilityCalculator.calculateDailyVolatility(returnsTimeSeries);
 
         System.out.println("Simple portfolio volatility: " + volatility);
     }
