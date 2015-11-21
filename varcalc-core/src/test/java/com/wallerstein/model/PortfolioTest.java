@@ -78,11 +78,24 @@ public class PortfolioTest {
 
     @Test
     public void testNumPositions() throws Exception {
-        final int PORTFOLIO_SIZE = 5;
-        List<Position> mockList = mock(List.class);
-        when(mockList.size()).thenReturn(PORTFOLIO_SIZE);
-        Portfolio portfolio = new Portfolio(mockList);
-        assertEquals(portfolio.numPositions(), PORTFOLIO_SIZE);
+        List<Position> positionList = Arrays.asList(
+                new Position("XYZ", 100),
+                new Position("ZZZ", -100));
+        Portfolio portfolio = new Portfolio(positionList);
+        assertEquals(portfolio.numPositions(), positionList.size());
+    }
+
+    @Test
+    public void testDupePositions() throws Exception {
+        List<Position> positionList = Arrays.asList(
+                new Position("XYZ", 100),
+                new Position("ZZZ", 100),
+                new Position("XYZ", 100),
+                new Position("ZZZ", -100));
+        Portfolio portfolio = new Portfolio(positionList);
+        assertEquals(portfolio.numPositions(), 1);
+        Position p1 = portfolio.getPosition("XYZ");
+        assertEquals(p1.getQuantity(), 200.0, 0.0001);
     }
 
     @Test

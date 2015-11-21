@@ -1,13 +1,14 @@
 package com.wallerstein.volatility;
 
-import com.wallerstein.model.ReturnsTimeSeries;
+import com.wallerstein.model.ClosingPriceTS;
+
+import java.util.List;
 
 public interface VolatilityCalculator {
     /**
      * Calculates daily volatility for a given time series.
-     * @param returnsTimeSeries
-     *            time series
+     * @param portfClosingPrices closing prices for portfolio
      * @return volatility
      */
-    double calculateDailyVolatility(ReturnsTimeSeries returnsTimeSeries);
+    double calculateDailyVolatility(List<ClosingPriceTS> portfClosingPrices);
 }

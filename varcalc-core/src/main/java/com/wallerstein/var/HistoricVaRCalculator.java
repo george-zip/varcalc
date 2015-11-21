@@ -47,13 +47,11 @@ public final class HistoricVaRCalculator implements VaRCalculator {
 
         List<ClosingPriceTS> portfClosingPrices = closingPricesSource.getClosingPricesForPortfolio(portfolio);
         if (portfClosingPrices.size() > 0) {
-            ReturnsTimeSeries portfolioReturns = portfolioServices.calculatePortfolioReturns(portfClosingPrices, portfolio);
+            ReturnsTimeSeries portfolioReturns = portfolioServices.calculateDollarReturns
+                    (portfClosingPrices, portfolio);
             List<TimeSeriesDataItem> returnsList = sortReturns(portfolioReturns.getDataSet());
             double portfolioNMV = portfolio.getNMV(portfClosingPrices);
-            return Math.min(
-                    scaleVaR(getNthPercentile(returnsList, percentile), days)
-                            * portfolioNMV, portfolioNMV);
-
+            return Math.abs(scaleVaR(getNthPercentile(returnsList, 1 - percentile), days));
         }
 
         return 0.0;
@@ -71,11 +69,11 @@ public final class HistoricVaRCalculator implements VaRCalculator {
                     final TimeSeriesDataItem o2) {
                 if (o1.getValue().doubleValue() < o2.getValue()
                         .doubleValue()) {
-                    return 1;
+                    return -1;
                 }
                 if (o1.getValue().doubleValue() > o2.getValue()
                         .doubleValue()) {
-                    return -1;
+                    return 1;
                 }
                 return 0;
             }
@@ -91,18 +89,19 @@ public final class HistoricVaRCalculator implements VaRCalculator {
         return retVal;
     }
 
+    private double rank(final int listSize, final double percentile) {
+        return (percentile / 100) * listSize;
+    }
+
+    // linear interpolation
     private double getNthPercentile(final List<TimeSeriesDataItem> returnsList,
             final double percentile) {
-        double retVal = 0.0;
-        int idx1 = (int) Math.floor((returnsList.size() - 1) * percentile);
-        int idx2 = (int) Math.ceil((returnsList.size() - 1) * percentile);
-        if(idx1 == idx2) {
-            retVal = returnsList.get(idx1).getValue().doubleValue();
-        }
-        else {
-            // poor man's linear interpolation
-            retVal = (returnsList.get(idx1).getValue().doubleValue() +
-                    returnsList.get(idx2).getValue().doubleValue()) / 2.0;
+        final int x = (int) Math.floor(rank(returnsList.size(), percentile * 100));
+        final double remainder = rank(returnsList.size(), percentile * 100) % 1;
+        double retVal = returnsList.get(x).getValue().doubleValue();
+        if(remainder > 0.0) {
+            retVal += remainder * (returnsList.get(x + 1).getValue().doubleValue() -
+                    returnsList.get(x).getValue().doubleValue());
         }
         return retVal;
     }

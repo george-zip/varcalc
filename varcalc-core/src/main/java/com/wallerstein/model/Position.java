@@ -2,12 +2,9 @@ package com.wallerstein.model;
 
 import java.security.InvalidParameterException;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
 /**
  * Immutable position, consisting of a security ID and a positive or negative quantity.
  */
-@XmlRootElement
 public final class Position {
 
     public enum Side {
@@ -41,4 +38,22 @@ public final class Position {
         }
     }
 
+    @Override
+    public boolean equals(Object o) {
+        boolean retVal = false;
+        if(o instanceof Position) {
+            Position other = (Position) o;
+            retVal = (securityID == other.securityID) && (quantity == other.quantity);
+        }
+        return retVal;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + securityID.hashCode();
+        long qtyBits = Double.doubleToLongBits(quantity);
+        result = 31 * result + (int) (qtyBits ^ (qtyBits >>> 32));
+        return result;
+    }
 }

@@ -7,24 +7,24 @@ import java.util.*;
  */
 public final class Portfolio implements Iterable<Position> {
 
-    private final List<Position> positions;
+    private List<Position> positions;
     private final String name;
     private final UUID id;
 
     public Portfolio(final List<Position> positions) {
-        this.positions = positions;
+        this.positions = flattenPositions(positions);
         this.name = "";
         this.id = UUID.randomUUID();
     }
 
     public Portfolio(final List<Position> positions, final String name) {
-        this.positions = positions;
+        this.positions = flattenPositions(positions);
         this.name = name;
         this.id = UUID.randomUUID();
     }
 
     public Portfolio(final List<Position> positions, final String name, String id) {
-        this.positions = positions;
+        this.positions = flattenPositions(positions);
         this.name = name;
         this.id = UUID.fromString(id);
     }
@@ -84,6 +84,24 @@ public final class Portfolio implements Iterable<Position> {
 
     public String getID() {
         return id.toString();
+    }
+
+    private List<Position> flattenPositions(final List<Position> positions) {
+        Map<String, Double> uniquePositions = new HashMap<>();
+        for(Position p : positions) {
+            Double qty = 0.0;
+            if(uniquePositions.containsKey(p.getSecurityID())) {
+                qty = uniquePositions.get(p.getSecurityID());
+            }
+            uniquePositions.put(p.getSecurityID(), qty + p.getQuantity());
+        }
+        List<Position> retVal = new ArrayList<>();
+        for(Map.Entry<String, Double> entry : uniquePositions.entrySet()) {
+            if(entry.getValue() != 0.0) {
+                retVal.add(new Position(entry.getKey(), entry.getValue()));
+            }
+        }
+        return retVal;
     }
 
 }

@@ -48,8 +48,7 @@ class PortfolioAnalyzer {
         System.out.println("Historic " + VAR_DAYS + " day(s) VaR @ " + VAR_PERCENTILE * 100 + "%: "
                 + cf.format(vaRCalculator.calculateWorstLoss(portfolio, VAR_PERCENTILE, VAR_DAYS)));
 
-        ReturnsTimeSeries returnsTimeSeries = portfolioServices.calculatePortfolioReturns(portfClosingPrices, portfolio);
-        double volatility = volatilityCalculator.calculateDailyVolatility(returnsTimeSeries);
+        double volatility = volatilityCalculator.calculateDailyVolatility(portfClosingPrices);
 
         System.out.println("Simple portfolio volatility: " + volatility);
     }

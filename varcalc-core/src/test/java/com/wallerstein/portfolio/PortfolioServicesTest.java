@@ -60,9 +60,10 @@ public class PortfolioServicesTest {
 
     @Test
     public void testCalculatePortfolioReturns() throws Exception {
-        ReturnsTimeSeries returnsTS = portfolioServices.calculatePortfolioReturns(closingPrices, portfolio);
+        ReturnsTimeSeries returnsTS = portfolioServices.calculateDollarReturns(closingPrices, portfolio);
 
-        double returns[] = {-0.046, -0.063, 0.070, -0.034, -0.025};
+        // $ returns on the portfolio
+        double returns[] = { -931.45, -1438.07,  1480.74, -735.76, -524.64 };
 
         assertEquals(returnsTS.getDataSet().getItemCount(), 5);
         for (int i = 0; i < returnsTS.getDataSet().getItemCount(); i++) {
@@ -80,6 +81,6 @@ public class PortfolioServicesTest {
                 new ClosingPriceTS("Bogus", ts, 5));
 
         thrown.expect(IllegalArgumentException.class);
-        portfolioServices.calculatePortfolioReturns(closingPrices, portfolio);
+        portfolioServices.calculateDollarReturns(closingPrices, portfolio);
     }
 }

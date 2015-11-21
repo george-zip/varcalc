@@ -9,7 +9,7 @@ import com.wallerstein.timeseries.HistoricalClosingPrices;
 import com.wallerstein.timeseries.YahooCPService;
 import com.wallerstein.var.HistoricVaRCalculator;
 import com.wallerstein.var.VaRCalculator;
-import com.wallerstein.volatility.MovingAvgVolatilityCalculator;
+import com.wallerstein.volatility.HistoricalVolCalculator;
 import com.wallerstein.volatility.VolatilityCalculator;
 
 import java.io.File;
@@ -24,7 +24,7 @@ final class VaRCalcMain extends AbstractModule {
     @Override
     public void configure() {
         bind(VaRCalculator.class).to(HistoricVaRCalculator.class);
-        bind(VolatilityCalculator.class).to(MovingAvgVolatilityCalculator.class);
+        bind(VolatilityCalculator.class).to(HistoricalVolCalculator.class);
         bind(HistoricalClosingPrices.class).to(YahooCPService.class);
     }
 
@@ -86,8 +86,8 @@ final class VaRCalcMain extends AbstractModule {
 //        System.out.println("Historic 1 day VaR @ 95%: "
 //                + cf.format(calc.calculateWorstLoss(portfolio, PERCENTILE, 1)));
 //
-//        VolatilityCalculator vc = new MovingAvgVolatilityCalculator();
-//        ReturnsTimeSeries returnsTimeSeries = mc.portfolioServices.calculatePortfolioReturns(
+//        VolatilityCalculator vc = new HistoricalVolCalculator();
+//        ReturnsTimeSeries returnsTimeSeries = mc.portfolioServices.calculateDollarReturns(
 //                portfolioTS, portfolio);
 //
 //        double volatility = vc.calculateDailyVolatility(returnsTimeSeries.getDataSet());

@@ -8,7 +8,7 @@ import com.wallerstein.timeseries.HistoricalClosingPrices;
 import com.wallerstein.timeseries.YahooCPService;
 import com.wallerstein.var.HistoricVaRCalculator;
 import com.wallerstein.var.VaRCalculator;
-import com.wallerstein.volatility.MovingAvgVolatilityCalculator;
+import com.wallerstein.volatility.HistoricalVolCalculator;
 import com.wallerstein.volatility.VolatilityCalculator;
 
 import javax.servlet.ServletContext;
@@ -26,7 +26,7 @@ public final class PortfoliosService {
     private final PortfolioServices portfolioServices = new PortfolioServices();
     private final VaRCalculator vaRCalculator = new HistoricVaRCalculator
             (closingPricesSource, portfolioServices);
-    private final VolatilityCalculator volatilityCalculator = new MovingAvgVolatilityCalculator();
+    private final VolatilityCalculator volatilityCalculator = new HistoricalVolCalculator();
 
     private final int UnprocessableEntity = 442;
 
@@ -122,7 +122,7 @@ public final class PortfoliosService {
     @DELETE
     @Path("{portfolio_id}/positions/{symbol}")
     @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
+    //@Consumes(MediaType.APPLICATION_JSON)
     public Response deletePosition(@Context ServletContext context,
                                    @PathParam("portfolio_id") String id,
                                    @PathParam("symbol") String symbol) {
@@ -168,13 +168,29 @@ public final class PortfoliosService {
     }
 
     @GET
+    @Path("{portfolio_id}/gmv")
+    @Produces(MediaType.APPLICATION_JSON)
+    public JsonElement getGMV(@Context ServletContext context, @PathParam("portfolio_id") String id) {
+        Portfolio portfolio = PortfolioBook.getPortfolioBook(context).getPortfolioByID(id);
+        List<ClosingPriceTS> portfClosingPrices = closingPricesSource.getClosingPricesForPortfolio(portfolio);
+        double nmv = portfolio.getGMV(portfClosingPrices);
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("gmv", nmv);
+        JsonObject jsonDataObject = new JsonObject();
+        jsonDataObject.add("data", jsonObject);
+        return jsonDataObject;
+    }
+
+    @GET
     @Path("{portfolio_id}/vol")
     @Produces(MediaType.APPLICATION_JSON)
     public JsonElement getVol(@Context ServletContext context, @PathParam("portfolio_id") String id) {
         Portfolio portfolio = PortfolioBook.getPortfolioBook(context).getPortfolioByID(id);
-        List<ClosingPriceTS> portfClosingPrices = closingPricesSource.getClosingPricesForPortfolio(portfolio);
-        ReturnsTimeSeries returnsTimeSeries = portfolioServices.calculatePortfolioReturns(portfClosingPrices, portfolio);
-        double volatility = volatilityCalculator.calculateDailyVolatility(returnsTimeSeries);
+        double volatility = 0.0;
+        if(portfolio.numPositions() > 0) {
+            List<ClosingPriceTS> portfClosingPrices = closingPricesSource.getClosingPricesForPortfolio(portfolio);
+            volatility = volatilityCalculator.calculateDailyVolatility(portfClosingPrices);
+        }
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("vol", volatility);
         JsonObject jsonDataObject = new JsonObject();

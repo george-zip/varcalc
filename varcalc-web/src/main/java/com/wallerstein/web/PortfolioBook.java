@@ -21,20 +21,12 @@ public final class PortfolioBook {
         portfolios.put(p1.getID(), p1);
     }
 
-    private static final PortfolioBook porfolioBook = new PortfolioBook();
-
     public static PortfolioBook getPortfolioBook(final ServletContext servletContext) {
-        if(servletContext != null) {
             if (servletContext.getAttribute(ATTRIBUTE_NAME) == null) {
                 PortfolioBook pb = new PortfolioBook();
                 servletContext.setAttribute(ATTRIBUTE_NAME, pb);
             }
             return (PortfolioBook) servletContext.getAttribute(ATTRIBUTE_NAME);
-        }
-        else {
-            // testing
-            return porfolioBook;
-        }
     }
 
     public synchronized void addPortfolio(final Portfolio newP) throws IllegalArgumentException {

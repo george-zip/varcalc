@@ -16,9 +16,9 @@ public final class PortfolioServices {
      * series of portfolio returns based on log returns
      * @param portfolioClosingPrices list of price return series
      * @param portfolio portfolio of securities
-     * @return ReturnsTimeSeries containing portfolio returns
+     * @return ReturnsTimeSeries containing portfolio returns in dollar
      */
-    public ReturnsTimeSeries calculatePortfolioReturns(
+    public ReturnsTimeSeries calculateDollarReturns(
             final List<ClosingPriceTS> portfolioClosingPrices, final Portfolio portfolio) {
 
         if(!tsHaveSameNumberOfDataPoints(portfolioClosingPrices)) {
@@ -30,22 +30,64 @@ public final class PortfolioServices {
 
         for (ClosingPriceTS positionClosingPrices : portfolioClosingPrices) {
 
-            @SuppressWarnings("unchecked")
-            List<TimeSeriesDataItem> items = positionClosingPrices.getDataSet().getItems();
+            final String symbol = positionClosingPrices.getSymbol();
+            final double price = positionClosingPrices.getPreviousClose();
+            final double qty = portfolio.getPosition(symbol).getQuantity();
+            final double positionMV = price * qty;
 
-            for (TimeSeriesDataItem tsDataItem : items) {
-                final RegularTimePeriod timePeriod = tsDataItem.getPeriod();
-                final double price = tsDataItem.getValue().doubleValue();
-                final double qty = portfolio.getPosition(positionClosingPrices.getSymbol()).getQuantity();
+            ReturnsTimeSeries returnsForThisSymbols = ReturnsTimeSeries.fromCPTS(positionClosingPrices.getDataSet());
+
+            @SuppressWarnings("unchecked")
+            List<TimeSeriesDataItem> items = returnsForThisSymbols.getDataSet().getItems();
+
+            for (TimeSeriesDataItem dataPoint : items) {
+                final RegularTimePeriod timePeriod = dataPoint.getPeriod();
+                final double periodReturn = dataPoint.getValue().doubleValue();
                 TimeSeriesDataItem currentDataItem;
                 double currentVal = 0.0;
                 if ((currentDataItem = portfolioReturns.getDataItem(timePeriod)) != null) {
                     currentVal = currentDataItem.getValue().doubleValue();
                 }
-                portfolioReturns.addOrUpdate(timePeriod, currentVal + (qty * price));
+                portfolioReturns.addOrUpdate(timePeriod, currentVal + (periodReturn * positionMV));
             }
         }
-        return ReturnsTimeSeries.fromCPTS(portfolioReturns);
+        return new ReturnsTimeSeries(portfolioReturns);
+    }
+
+    public ReturnsTimeSeries calculatePercentageReturns(
+            final List<ClosingPriceTS> portfolioClosingPrices, final Portfolio portfolio) {
+
+        if(!tsHaveSameNumberOfDataPoints(portfolioClosingPrices)) {
+            throw new IllegalArgumentException(
+                    "One of the time series in this portfolio does not have the same number of data points.");
+        }
+
+        TimeSeries portfolioReturns = new TimeSeries("PortfolioReturns");
+
+        for (ClosingPriceTS positionClosingPrices : portfolioClosingPrices) {
+
+            final String symbol = positionClosingPrices.getSymbol();
+            final double price = positionClosingPrices.getPreviousClose();
+            final double qty = portfolio.getPosition(symbol).getQuantity();
+            final double positionMV = price * qty;
+
+            ReturnsTimeSeries returnsForThisSymbols = ReturnsTimeSeries.fromCPTS(positionClosingPrices.getDataSet());
+
+            @SuppressWarnings("unchecked")
+            List<TimeSeriesDataItem> items = returnsForThisSymbols.getDataSet().getItems();
+
+            for (TimeSeriesDataItem dataPoint : items) {
+                final RegularTimePeriod timePeriod = dataPoint.getPeriod();
+                final double periodReturn = dataPoint.getValue().doubleValue();
+                TimeSeriesDataItem currentDataItem;
+                double currentVal = 0.0;
+                if ((currentDataItem = portfolioReturns.getDataItem(timePeriod)) != null) {
+                    currentVal = currentDataItem.getValue().doubleValue();
+                }
+                portfolioReturns.addOrUpdate(timePeriod, currentVal + (periodReturn * positionMV));
+            }
+        }
+        return new ReturnsTimeSeries(portfolioReturns);
     }
 
     private boolean tsHaveSameNumberOfDataPoints(final List<ClosingPriceTS> tsList) {

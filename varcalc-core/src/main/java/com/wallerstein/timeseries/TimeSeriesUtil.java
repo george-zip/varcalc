@@ -9,7 +9,7 @@ import org.jfree.data.time.TimeSeriesDataItem;
 /*
  * Utility class for jfree TimeSeries class.
  */
-final class TimeSeriesUtil {
+public final class TimeSeriesUtil {
 
     /**
      * Calculates the sum of values in the time series.
@@ -34,11 +34,11 @@ final class TimeSeriesUtil {
      * @param ts TimeSeries
      * @return average
      */
-    static double getMean(final TimeSeries ts) {
+    public static double getMean(final TimeSeries ts) {
         return getSum(ts) / ts.getItemCount();
     }
 
-    static double getVariance(final TimeSeries ts) {
+    public static double getVariance(final TimeSeries ts) {
         double retVal = 0.0;
 
         final double mean = getMean(ts);
