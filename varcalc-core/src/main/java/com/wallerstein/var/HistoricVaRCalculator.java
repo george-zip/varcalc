@@ -96,7 +96,9 @@ public final class HistoricVaRCalculator implements VaRCalculator {
     // linear interpolation
     private double getNthPercentile(final List<TimeSeriesDataItem> returnsList,
             final double percentile) {
-        final int x = (int) Math.floor(rank(returnsList.size(), percentile * 100));
+        int x = (int) Math.floor(rank(returnsList.size(), percentile * 100));
+        if(x == returnsList.size())
+            x--;
         final double remainder = rank(returnsList.size(), percentile * 100) % 1;
         double retVal = returnsList.get(x).getValue().doubleValue();
         if(remainder > 0.0) {

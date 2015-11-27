@@ -1,0 +1,8 @@
+<div>
+  <ul ng-repeat="portfolio in portfolios">
+    <li><a href="{{ makeUrl(portfolio.data.id, portfolio.data.name) }}"> {{ portfolio.data.name }} </a> </li>
+  </ul>
+  Add new:
+  <input type="text" required="" ng-model="newPortfolio" />
+  <button ng-click="addPortfolio()">Add</button>
+</div>

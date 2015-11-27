@@ -1,0 +1,66 @@
+<div>
+  <h2>Portfolio: {{ portfolioName }} </h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Net Market Value</th>
+        <th>Gross Market Value</th>
+        <th>{{ timePeriod }} VaR @ {{ percentage }}% </th>
+        <th>Daily Volatilty</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ nmv | currency }}</td>
+        <td>{{ gmv | currency }}</td>
+        <td>{{ var | currency }}</td>
+        <td>{{ vol | number:2 }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <br/>
+  Change VaR Percentile: 
+  <input type="number" ng-model="changePercentile" ng-change="newPercentile(changePercentile);" id="ng-change-percentile" 
+  min="90" max="99" ng-init="changePercentile=percentage" />
+    Change time period: 
+  <select ng-model="changeDays" ng-change="newDays(changeDays);" 
+  id="ng-change-days">
+    <option value="1">1 day</option>
+    <option value="5">5 days</option>
+    <option value="30">30 days</option>
+    <option value="250">1 year</option>
+  </select>
+
+  <h2>Positions:</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>L/S</th>
+        <th>Symbol</th>
+        <th>Qty</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng_repeat="position in positions | orderBy:symbol">
+        <td>{{ position.data.side }}</td>
+        <td>{{ position.data.symbol }}</td>
+        <td>{{ position.data.quantity | number:0 }}</td>
+        <td>
+          <input type="button" value="Remove" ng-click="removeRow(position.data.symbol)" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <br/> Add position (quantity symbol):
+  <form name="addPosition" ng-submit="addNewPosition(response);" novalidate>
+    <input type="text" name="response" ng-model="response" required ngPattern="/^[0-9]+\w.[A-Z]+$/" />
+    <input type="submit" ng-disabled="addPosition.response.$pristine" />
+  </form>
+
+</div>
+<br/>
+<a href="#/main">Back to Portfolio List</a>

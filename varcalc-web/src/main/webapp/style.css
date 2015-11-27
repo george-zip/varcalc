@@ -1,0 +1,19 @@
+html * {
+  font-size: 1em !important;
+  color: #000 !important;
+  font-family: Verdana !important;
+}
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 15px;
+}
+input{
+    text-transform: uppercase;
+}
